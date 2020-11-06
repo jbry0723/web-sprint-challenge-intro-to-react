@@ -30,11 +30,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+A:React is library used to build components. Components allow you to integrate JS, CSS and HTML all into a single file and then render that file using JSX
+
 1. Describe component state.
+
+A:Component state is a feature of components that allows them to save state that updates based off user interaction.
 
 1. Describe props.
 
+A. Props are attributes passed to react components from their parent components.
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+A. Side effects is code that is triggered when a specific component re-render on a page. 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -56,14 +64,14 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 Your finished project must include all of the following requirements:
 
-- [ ] Use ONE of the following APIs:
+- [x] Use ONE of the following APIs:
   - [Star Wars API](https://swapi.dev/)
   - [Alternate Star Wars API](https://swapi.py4e.com/)
   - [The Rick and Morty API](https://rickandmortyapi.com/)
   - [The RESTful Pokémon API](https://pokeapi.co/) (**harder**)
-- [ ] Use the documentation and Google to learn how to fetch characters from your API.
-- [ ] Obtain a list of characters. One or several requests might be needed, depending on the API.
-- [ ] Set the list of characters into state.
+- [x] Use the documentation and Google to learn how to fetch characters from your API.
+- [x] Obtain a list of characters. One or several requests might be needed, depending on the API.
+- [x] Set the list of characters into state.
 - [ ] Render your characters to the screen:
   - Build a React component named 'Character' to render an individual character.
   - Map over the list in state, and for each character render a Character to the page.
@@ -106,3 +114,13 @@ Follow these steps for completing your project.
 - [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` branch (student's Repo). **Please don't merge your own pull request**
 - [ ] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete after receiving your pull-request
+
+
+    {chars.map((eachChar)=>{
+        return <Character 
+          key={eachChar.url}
+          chars={eachChar}
+          />
+          
+      })
+    }
