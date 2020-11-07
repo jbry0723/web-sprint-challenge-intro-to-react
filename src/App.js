@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 import './App.css';
+import Character from './Character'
 
 const App = () => {
+  const [chars,setChars]= useState([])
+  const [currentCharacterId, setCurrentCharacterId] = useState(null)
+  
+  
+
+  useEffect(()=>{
+    const fetchChars=()=>{
+      axios.get(`https://swapi.dev/api/people/`)
+        .then (res=>{
+          setChars(res.data.results)
+          
+        })
+        .catch (err=>{
+          debugger
+        })
+
+    }
+    fetchChars()
+  },[])
+
+  const openDetails = (id) => {
+    if(currentCharacterId===id){setCurrentCharacterId(null)}
+    else {setCurrentCharacterId(id)}
+  }
+
+ 
+  
+
+  
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -9,11 +40,30 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+
+
+
+
+
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+   
+   {chars.map((eachChar, index)=>{
+        return <Character 
+        selectedCharacterId={currentCharacterId} 
+        open={openDetails}
+          index={index}
+          key={index}
+          char={eachChar}
+          />
+          
+      })
+    }
+      
+  
     </div>
-  );
-}
+    
+  )
+  }
 
 export default App;
