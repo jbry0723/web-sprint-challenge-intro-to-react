@@ -24,11 +24,12 @@ const App = () => {
     fetchChars()
   },[])
 
-  const openDetails = id => {
-    setCurrentCharacterId(id)
-    console.log("openDetails")
-    console.log(id)
+  const openDetails = (id) => {
+    if(currentCharacterId===id){setCurrentCharacterId(null)}
+    else {setCurrentCharacterId(id)}
   }
+
+ 
   
 
   
@@ -42,7 +43,7 @@ const App = () => {
 
 
 
-console.log("chars", JSON.stringify(chars))
+
 
   return (
     <div className="App">
